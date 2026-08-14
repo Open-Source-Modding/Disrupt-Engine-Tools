@@ -1,0 +1,12 @@
+Metadata-Version: 1.0
+Name: layer2prefab
+Version: 0.1
+Summary: layer2prefab package for a standalone tool
+Home-page: UNKNOWN
+Author: Orwell
+Author-email: ORWELL-Support-Tor@ubisoft.com>
+License: Ubisoft internal use
+Description: Layer2Prefab
+        
+        a tool to help convert layers from any world into prefabs
+Platform: UNKNOWN

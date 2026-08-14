@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="hktagfile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element maxOccurs="unbounded" name="type">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:choice maxOccurs="unbounded">
+									<xs:element name="name">
+										<xs:complexType>
+											<xs:attribute name="value" type="xs:string" use="required" />
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="format">
+										<xs:complexType>
+											<xs:attribute name="value" type="xs:unsignedInt" use="required" />
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="flags">
+										<xs:complexType>
+											<xs:attribute name="value" type="xs:unsignedByte" use="required" />
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="version">
+										<xs:complexType>
+											<xs:attribute name="value" type="xs:unsignedByte" use="required" />
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="subtype">
+										<xs:complexType>
+											<xs:attribute name="id" type="xs:string" use="required" />
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="parameters">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element maxOccurs="unbounded" name="typeparam">
+													<xs:complexType>
+														<xs:attribute name="id" type="xs:string" use="required" />
+													</xs:complexType>
+												</xs:element>
+												<xs:element minOccurs="0" name="valueparam">
+													<xs:complexType>
+														<xs:attribute name="value" type="xs:unsignedByte" use="required" />
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="count" type="xs:unsignedByte" use="required" />
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="fields">
+										<xs:complexType mixed="true">
+											<xs:sequence minOccurs="0">
+												<xs:element maxOccurs="unbounded" name="field">
+													<xs:complexType>
+														<xs:attribute name="name" type="xs:string" use="required" />
+														<xs:attribute name="typeid" type="xs:string" use="required" />
+														<xs:attribute name="flags" type="xs:unsignedByte" use="required" />
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="count" type="xs:unsignedByte" use="required" />
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="parent">
+										<xs:complexType>
+											<xs:attribute name="id" type="xs:string" use="required" />
+										</xs:complexType>
+									</xs:element>
+								</xs:choice>
+							</xs:sequence>
+							<xs:attribute name="id" type="xs:string" use="required" />
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="object">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="record">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element maxOccurs="unbounded" name="field">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element minOccurs="0" name="bool">
+															<xs:complexType>
+																<xs:attribute name="value" type="xs:boolean" use="required" />
+															</xs:complexType>
+														</xs:element>
+														<xs:element minOccurs="0" name="record">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element maxOccurs="unbounded" name="field">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element minOccurs="0" name="integer">
+																					<xs:complexType>
+																						<xs:attribute name="value" type="xs:unsignedByte" use="required" />
+																					</xs:complexType>
+																				</xs:element>
+																				<xs:element minOccurs="0" name="array">
+																					<xs:complexType mixed="true">
+																						<xs:sequence minOccurs="0">
+																							<xs:element minOccurs="0" maxOccurs="unbounded" name="record">
+																								<xs:complexType>
+																									<xs:sequence>
+																										<xs:element maxOccurs="unbounded" name="field">
+																											<xs:complexType>
+																												<xs:sequence>
+																													<xs:element minOccurs="0" name="string">
+																														<xs:complexType>
+																															<xs:attribute name="value" type="xs:unsignedByte" use="optional" />
+																														</xs:complexType>
+																													</xs:element>
+																													<xs:element minOccurs="0" name="integer">
+																														<xs:complexType>
+																															<xs:attribute name="value" type="xs:unsignedByte" use="required" />
+																														</xs:complexType>
+																													</xs:element>
+																												</xs:sequence>
+																												<xs:attribute name="name" type="xs:string" use="required" />
+																											</xs:complexType>
+																										</xs:element>
+																									</xs:sequence>
+																								</xs:complexType>
+																							</xs:element>
+																							<xs:element minOccurs="0" maxOccurs="unbounded" name="integer">
+																								<xs:complexType>
+																									<xs:attribute name="value" type="xs:unsignedInt" use="required" />
+																								</xs:complexType>
+																							</xs:element>
+																						</xs:sequence>
+																						<xs:attribute name="count" type="xs:unsignedByte" use="required" />
+																						<xs:attribute name="elementtypeid" type="xs:string" use="required" />
+																					</xs:complexType>
+																				</xs:element>
+																			</xs:sequence>
+																			<xs:attribute name="name" type="xs:string" use="required" />
+																		</xs:complexType>
+																	</xs:element>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+														<xs:element minOccurs="0" name="pointer">
+															<xs:complexType>
+																<xs:attribute name="id" type="xs:string" use="required" />
+															</xs:complexType>
+														</xs:element>
+														<xs:element minOccurs="0" name="integer">
+															<xs:complexType>
+																<xs:attribute name="value" type="xs:unsignedByte" use="required" />
+															</xs:complexType>
+														</xs:element>
+														<xs:element minOccurs="0" name="real">
+															<xs:complexType>
+																<xs:attribute name="dec" type="xs:decimal" use="required" />
+																<xs:attribute name="hex" type="xs:string" use="required" />
+															</xs:complexType>
+														</xs:element>
+														<xs:element minOccurs="0" name="string">
+															<xs:complexType>
+																<xs:attribute name="value" type="xs:string" use="optional" />
+															</xs:complexType>
+														</xs:element>
+														<xs:element minOccurs="0" name="array">
+															<xs:complexType mixed="true">
+																<xs:sequence minOccurs="0">
+																	<xs:element minOccurs="0" name="string">
+																		<xs:complexType>
+																			<xs:attribute name="value" type="xs:string" use="required" />
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element minOccurs="0" maxOccurs="unbounded" name="integer">
+																		<xs:complexType>
+																			<xs:attribute name="value" type="xs:unsignedByte" use="required" />
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element minOccurs="0" name="bool">
+																		<xs:complexType>
+																			<xs:attribute name="value" type="xs:boolean" use="required" />
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element minOccurs="0" maxOccurs="unbounded" name="array">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element maxOccurs="unbounded" name="real">
+																					<xs:complexType>
+																						<xs:attribute name="dec" type="xs:unsignedByte" use="required" />
+																						<xs:attribute name="hex" type="xs:string" use="required" />
+																					</xs:complexType>
+																				</xs:element>
+																			</xs:sequence>
+																			<xs:attribute name="count" type="xs:unsignedByte" use="required" />
+																			<xs:attribute name="elementtypeid" type="xs:string" use="required" />
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element minOccurs="0" maxOccurs="unbounded" name="real">
+																		<xs:complexType>
+																			<xs:attribute name="dec" type="xs:decimal" use="required" />
+																			<xs:attribute name="hex" type="xs:string" use="required" />
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element minOccurs="0" maxOccurs="unbounded" name="pointer">
+																		<xs:complexType>
+																			<xs:attribute name="id" type="xs:string" use="required" />
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element minOccurs="0" maxOccurs="unbounded" name="record">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element maxOccurs="unbounded" name="field">
+																					<xs:complexType>
+																						<xs:sequence>
+																							<xs:element minOccurs="0" name="array">
+																								<xs:complexType>
+																									<xs:sequence>
+																										<xs:element maxOccurs="unbounded" name="record">
+																											<xs:complexType>
+																												<xs:sequence>
+																													<xs:element maxOccurs="unbounded" name="field">
+																														<xs:complexType>
+																															<xs:sequence>
+																																<xs:element minOccurs="0" name="pointer">
+																																	<xs:complexType>
+																																		<xs:attribute name="id" type="xs:string" use="required" />
+																																	</xs:complexType>
+																																</xs:element>
+																																<xs:element minOccurs="0" name="string">
+																																	<xs:complexType>
+																																		<xs:attribute name="value" type="xs:string" use="required" />
+																																	</xs:complexType>
+																																</xs:element>
+																															</xs:sequence>
+																															<xs:attribute name="name" type="xs:string" use="required" />
+																														</xs:complexType>
+																													</xs:element>
+																												</xs:sequence>
+																											</xs:complexType>
+																										</xs:element>
+																									</xs:sequence>
+																									<xs:attribute name="count" type="xs:unsignedByte" use="required" />
+																									<xs:attribute name="elementtypeid" type="xs:string" use="required" />
+																								</xs:complexType>
+																							</xs:element>
+																							<xs:element minOccurs="0" name="pointer">
+																								<xs:complexType>
+																									<xs:attribute name="id" type="xs:string" use="required" />
+																								</xs:complexType>
+																							</xs:element>
+																							<xs:element minOccurs="0" name="string">
+																								<xs:complexType>
+																									<xs:attribute name="value" type="xs:string" use="required" />
+																								</xs:complexType>
+																							</xs:element>
+																						</xs:sequence>
+																						<xs:attribute name="name" type="xs:string" use="required" />
+																					</xs:complexType>
+																				</xs:element>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																</xs:sequence>
+																<xs:attribute name="count" type="xs:unsignedShort" use="required" />
+																<xs:attribute name="elementtypeid" type="xs:string" use="required" />
+															</xs:complexType>
+														</xs:element>
+													</xs:sequence>
+													<xs:attribute name="name" type="xs:string" use="required" />
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+							<xs:attribute name="id" type="xs:string" use="required" />
+							<xs:attribute name="typeid" type="xs:string" use="required" />
+						</xs:complexType>
+					</xs:element>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="version" type="xs:unsignedByte" use="required" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

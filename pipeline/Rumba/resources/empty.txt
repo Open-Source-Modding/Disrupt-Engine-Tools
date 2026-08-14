@@ -1,0 +1,1 @@
+This exists only because P4 does not support empty folders.

@@ -1,0 +1,3 @@
+[console_scripts]
+layer2prefab_standalone = layer2prefab.gui:main
+
