@@ -48,7 +48,11 @@ animation_tools/   Animation pipeline tools
   prop_info_extractor.py Extract prop info with Perforce config
 
 bin_tools/         Compiled dev-tool binaries (from leak `bin/tools/`)
-  material_editor/       Disrupt.Materials.Editor.dll + standalone editor (authoritative .material.bin reference, WPF .NET)
+  material_editor/       Disrupt.Materials.Editor.dll + standalone editor (WPF .NET)
+                         NOTE: XML-based (XmlSerializer) shader DATA-CLASS editor — edits
+                         parameter definitions (Name/Type/Min/Max/Increment/DisplayValue*),
+                         NOT the binary .material.bin. The compiled TAM v7 binary is written
+                         by the engine, not this tool.
   animation_dissect/    Dissect.exe animation viewer (x64 .NET)
   pak_viewer/           PakViewer.exe (native, needs Oodle oo2core)
   stringid/             StringIDTool.exe (string → FNV hash tool)
