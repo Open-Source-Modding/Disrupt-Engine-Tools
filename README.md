@@ -57,6 +57,13 @@ bin_tools/         Compiled dev-tool binaries (from leak `bin/tools/`)
   pak_viewer/           PakViewer.exe (native, needs Oodle oo2core)
   stringid/             StringIDTool.exe (string → FNV hash tool)
   archive_differ/       ArchiveDiffer_r64.exe (BigFile/FAT comparison)
+  nomad_exporter/       FireExportNomadPlugin (WD2/Nomad asset exporter, C++/CLI →
+                        native). DLLs + PDBs. The authoritative source for how
+                        .material.bin / .xbg / .glm are WRITTEN by Ubisoft.
+                        Format serialization is native (Disrupt.Core) — PDBs give
+                        exact symbol names for future native RE.
+  Note: Disrupt tooling is C++/CLI mixed-mode; the real binary codecs
+        (Quark.BinarySerializer / CustomBinarySerialize) are native, not managed.
 
 world_tools/       World/level editing tools
   layer_to_prefab/       Convert world layers to prefabs
