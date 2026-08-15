@@ -47,6 +47,13 @@ animation_tools/   Animation pipeline tools
   animation_report/      C# animation action list / CLO report
   prop_info_extractor.py Extract prop info with Perforce config
 
+bin_tools/         Compiled dev-tool binaries (from leak `bin/tools/`)
+  material_editor/       Disrupt.Materials.Editor.dll + standalone editor (authoritative .material.bin reference, WPF .NET)
+  animation_dissect/    Dissect.exe animation viewer (x64 .NET)
+  pak_viewer/           PakViewer.exe (native, needs Oodle oo2core)
+  stringid/             StringIDTool.exe (string → FNV hash tool)
+  archive_differ/       ArchiveDiffer_r64.exe (BigFile/FAT comparison)
+
 world_tools/       World/level editing tools
   layer_to_prefab/       Convert world layers to prefabs
   snapshot_classifier.py Classify building/POI snapshots
